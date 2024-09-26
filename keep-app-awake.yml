@@ -1,0 +1,15 @@
+name: Keep Streamlit App Awake
+
+on:
+  schedule:
+    # This runs the job every day at 8:00 AM UTC
+    - cron: '0 8 * * *'
+
+jobs:
+  ping_app:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send request to keep app awake
+      run: |
+        curl -X GET https://your-streamlit-app-url.com
